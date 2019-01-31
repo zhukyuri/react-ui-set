@@ -1,5 +1,3 @@
-import Drag from './Drag';
-import Drop from './Drop';
+import DragDropProvider from './DragDropProvider';
 
-export { Drag };
-export { Drop };
+export { DragDropProvider };
