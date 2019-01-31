@@ -3,14 +3,17 @@
 import React, { Component } from 'react'
 
 type Props = {
-  cbDragStart?: any,
-  cbDragEnd?: any,
+  // all events
   cbDragDrop?: any,
+  // events
+  cbDragStart?: any,
+  cbDrag?: any,
+  cbDragEnd?: any,
   cbDragOver?: any,
   cbDragEnter?: any,
   cbDragLeave?: any,
   cbDrop?: any,
-  cbDrag?: any,
+  // children
   children?: any,
 };
 
@@ -98,7 +101,7 @@ class DragDropProvider extends Component<Props, State> {
     if (dataset && dataset.dragid) {
       this.currentMethod = 'DragOver'
 
-      if (dataset.dragid && dataset.dragid !== this.currentDropId) {
+      if (dataset.dragid) {
         if (cbDragOver) {
           cbDragOver(this.currentMethod, this.currentDropId, e)
         }
@@ -194,11 +197,11 @@ class DragDropProvider extends Component<Props, State> {
     const {children} = this.props
 
     return (
-      <DragDropContext.Provider>
+      <div>
         {children}
-      </DragDropContext.Provider>
-    );
+      </div>
+    )
   }
 }
 
-export default DragDropProvider;
+export default DragDropProvider
