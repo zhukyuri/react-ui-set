@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 type Props = {
   // all events
   cbDragDrop?: any,
-  // events
+  // standard events
   cbDragStart?: any,
   cbDrag?: any,
   cbDragEnd?: any,
@@ -42,13 +42,18 @@ class DragDropProvider extends Component<Props, State> {
     this.currentDropId = null
   }
 
+  /**
+   * All events in one method
+   * @param {string} method
+   * @param {string} elementName
+   * @param {event} e
+   */
   onAllEventDragDrop(method: string, elementName: string, e: SyntheticDragEvent<*>): void {
     const {cbDragDrop} = this.props
 
     if (cbDragDrop) {
       cbDragDrop(method, elementName, e, this.currentDragElementName)
     }
-
   }
 
   onDragStart(e: SyntheticDragEvent<HTMLElement>) {

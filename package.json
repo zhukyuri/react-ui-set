@@ -1,10 +1,13 @@
 {
   "name": "react-ui-set",
-  "version": "1.0.0",
-  "description": "React UI material",
+  "version": "1.0.8",
+  "description": "React material UI",
   "author": "zhukyuri",
   "license": "MIT",
-  "repository": "zhukyuri/react-ui-set",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhukyuri/react-ui-set.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -19,10 +22,10 @@
     "start": "rollup -c -w",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "all": "npm run prepare && npm run predeploy && npm run deploy"
   },
   "peerDependencies": {
-    "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
@@ -59,8 +62,14 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.11"
-  }
+  "bugs": {
+    "url": "https://github.com/zhukyuri/react-ui-set/issues"
+  },
+  "homepage": "https://github.com/zhukyuri/react-ui-set#readme",
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [
+    "react", "Drag&Drop", "DragAndDrop", "Drag Drop", "react-component", "drag-and-drop", "provider"
+  ]
 }
