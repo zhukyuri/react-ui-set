@@ -14,7 +14,7 @@ Material list:
 - DropDownProvider
 - (Other in progress)
 
-Demo https://zhukyuri.github.io/react-ui-set/
+[Demo](https://zhukyuri.github.io/react-ui-set/)
 
 
 # DropDownProvider
@@ -103,7 +103,13 @@ Callback table
 |cbDragLeave    |Need attribute ***onDragLeave*** in HTML element    |
 
 
-## Example #1
+## Example 1
+
+```
+  |-App.js
+  |-DragDropElements.js
+  |-index.css
+```
 
 DragDropElements.js
 
