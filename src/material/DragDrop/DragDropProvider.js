@@ -38,21 +38,21 @@ class DragDropProvider extends Component<Props, State> {
 
     this.onAllEventDragDrop = this.onAllEventDragDrop.bind(this)
 
-    this.currentDragElementName = null
+    this.currentDragElementId = null
     this.currentDropId = null
   }
 
   /**
    * All events in one method
    * @param {string} method
-   * @param {string} elementName
+   * @param {string} eventElementId
    * @param {event} e
    */
-  onAllEventDragDrop(method: string, elementName: string, e: SyntheticDragEvent<*>): void {
+  onAllEventDragDrop(method: string, eventElementId: string, e: SyntheticDragEvent<*>): void {
     const {cbDragDrop} = this.props
 
     if (cbDragDrop) {
-      cbDragDrop(method, elementName, e, this.currentDragElementName)
+      cbDragDrop(method, eventElementId, e, this.currentDragElementId)
     }
   }
 
@@ -62,16 +62,16 @@ class DragDropProvider extends Component<Props, State> {
     e.dataTransfer.effectAllowed = 'move'
 
     if (dataset && dataset.dragid) {
-      this.currentDragElementName = dataset.dragid
+      this.currentDragElementId = dataset.dragid
       this.currentMethod = 'DragStart'
 
       if (cbDragStart) {
-        cbDragStart(this.currentMethod, this.currentDragElementName, e)
+        cbDragStart(this.currentMethod, this.currentDragElementId, e)
       }
 
-      this.onAllEventDragDrop(this.currentMethod, this.currentDragElementName, e)
+      this.onAllEventDragDrop(this.currentMethod, this.currentDragElementId, e)
     } else {
-      this.currentDragElementName = null
+      this.currentDragElementId = null
     }
   }
 
@@ -80,17 +80,16 @@ class DragDropProvider extends Component<Props, State> {
     const dataset: typeDrag = e.currentTarget.dataset
 
     if (dataset && dataset.dragid) {
-      this.currentDragElementName = dataset.dragid
       this.currentMethod = 'DragEnd'
 
       if (cbDragEnd) {
-        cbDragEnd(this.currentMethod, this.currentDragElementName, e)
+        cbDragEnd(this.currentMethod, dataset.dragid, e, this.currentDragElementId)
       }
 
-      this.onAllEventDragDrop(this.currentMethod, this.currentDragElementName, e)
+      this.onAllEventDragDrop(this.currentMethod, dataset.dragid, e)
     }
 
-    this.currentDragElementName = null
+    this.currentDragElementId = null
     this.currentDropId = null
   }
 
@@ -108,7 +107,7 @@ class DragDropProvider extends Component<Props, State> {
 
       if (dataset.dragid) {
         if (cbDragOver) {
-          cbDragOver(this.currentMethod, this.currentDropId, e)
+          cbDragOver(this.currentMethod, dataset.dragid, e, this.currentDragElementId)
         }
 
         this.onAllEventDragDrop(this.currentMethod, dataset.dragid, e)
@@ -132,10 +131,10 @@ class DragDropProvider extends Component<Props, State> {
       this.currentDropId = dataset.dragid
 
       if (cbDragEnter) {
-        cbDragEnter(this.currentMethod, this.currentDropId, e)
+        cbDragEnter(this.currentMethod, dataset.dragid, e, this.currentDragElementId)
       }
 
-      this.onAllEventDragDrop(this.currentMethod, this.currentDropId, e)
+      this.onAllEventDragDrop(this.currentMethod, dataset.dragid, e)
     }
   }
 
@@ -153,10 +152,10 @@ class DragDropProvider extends Component<Props, State> {
       this.currentDropId = dataset.dragid
 
       if (cbDragLeave && dataset.dragid) {
-        cbDragLeave(this.currentMethod, this.currentDropId, e)
+        cbDragLeave(this.currentMethod, dataset.dragid, e, this.currentDragElementId)
       }
 
-      this.onAllEventDragDrop(this.currentMethod, this.currentDropId, e)
+      this.onAllEventDragDrop(this.currentMethod, dataset.dragid, e)
     }
   }
 
@@ -172,7 +171,7 @@ class DragDropProvider extends Component<Props, State> {
       this.currentMethod = 'Drop'
 
       if (cbDrop && dataset.dragid) {
-        cbDrop(this.currentMethod, this.currentDropId, e)
+        cbDrop(this.currentMethod, dataset.dragid, e, this.currentDragElementId)
       }
 
       this.onAllEventDragDrop(this.currentMethod, dataset.dragid, e)
@@ -191,7 +190,7 @@ class DragDropProvider extends Component<Props, State> {
       this.currentMethod = 'Drag'
 
       if (cbDrag && dataset.dragid) {
-        cbDrag(this.currentMethod, this.currentDropId, e)
+        cbDrag(this.currentMethod, dataset.dragid, e, this.currentDragElementId)
       }
 
       this.onAllEventDragDrop(this.currentMethod, dataset.dragid, e)

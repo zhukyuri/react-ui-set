@@ -102,6 +102,78 @@ Callback table
 |cbDragEnter    |Need attribute ***onDragEnter*** in HTML element    |
 |cbDragLeave    |Need attribute ***onDragLeave*** in HTML element    |
 
+#### cbDragDrop (method, eventElementId, e, currentDragElementId)
+
+|Attribute name       |type    |value                                                                       |Description |
+|---------------------|--------|----------------------------------------------------------------------------|------------|
+|method               |string  |"DragStart", "Drag", "DragEnd", "DragEnter", "DragLeave", "DragOver", "Drop"|            |
+|eventElementId       |string  |*                                                                           |            |
+|e                    |event   |*                                                                           |            |
+|currentDragElementId |string  |*                                                                           |            |
+
+
+#### cbDragStart (method, currentDragElementId, e)
+
+|Attribute name       |type    |value      |Description |
+|---------------------|--------|-----------|------------|
+|method               |string  |"DragStart"|            |
+|currentDragElementId |string  |*          |            |
+|e                    |event   |*          |            |
+
+#### cbDrag (method, eventElementId, e, currentDragElementId)
+
+|Attribute name         |type    |value      |Description |
+|-----------------------|--------|-----------|------------|
+|method                 |string  |"DragStart"|            |
+|eventElementId         |string  |*          |            |
+|e                      |event   |*          |            |
+|currentDragElementId   |string  |*          |            |
+
+#### onDragEnd (method, eventElementId, e, currentDragElementId)
+
+|Attribute name       |type    |value      |Description |
+|---------------------|--------|-----------|------------|
+|method               |string  |"DragEnd"  |            |
+|eventElementId       |string  |*          |            |
+|e                    |event   |*          |            |
+|currentDragElementId |string  |*          |            |
+
+#### onDragOver (method, eventElementId, e, currentDragElementId)
+
+|Attribute name       |type    |value      |Description |
+|---------------------|--------|-----------|------------|
+|method               |string  |"DragOver" |            |
+|eventElementId       |string  |*          |            |
+|e                    |event   |*          |            |
+|currentDragElementId |string  |*          |            |
+
+#### onDragEnter (method, eventElementId, e, currentDragElementId)
+
+|Attribute name       |type    |value      |Description |
+|---------------------|--------|-----------|------------|
+|method               |string  |"DragEnter"|            |
+|eventElementId       |string  |*          |            |
+|e                    |event   |*          |            |
+|currentDragElementId |string  |*          |            |
+
+#### onDragLeave (method, eventElementId, e, currentDragElementId)
+
+|Attribute name       |type    |value      |Description |
+|---------------------|--------|-----------|------------|
+|method               |string  |"DragLeave"|            |
+|eventElementId       |string  |*          |            |
+|e                    |event   |*          |            |
+|currentDragElementId |string  |*          |            |
+
+#### onDrop (method, eventElementId, e, currentDragElementId)
+
+|Attribute name       |type    |value      |Description |
+|---------------------|--------|-----------|------------|
+|method               |string  |"Drop"     |            |
+|eventElementId       |string  |*          |            |
+|e                    |event   |*          |            |
+|currentDragElementId |string  |*          |            |
+
 
 ## Example 1
 
@@ -244,6 +316,10 @@ body {
   margin: 10px;
 }
 ```
+
+### Changelog
+**1.0.10**
+- Refactoring callback attribute
 
 
 ## License
