@@ -18,7 +18,7 @@ Material list:
     - [Step 2](#step-2)
   - [Attributes](#attributes)
   - [Callback](#callback)
-    - [cbDragDrop](#cbdragdrop-method-eventelementid-e-currentdragelementid)
+    - [cbDragDrop ( recommended for all events )](#cbdragdrop-method-eventelementid-e-currentdragelementid)
     - [cbDragStart](#cbdragstart-method-currentdragelementid-e)
     - [cbDrag](#cbdrag-method-eventelementid-e-currentdragelementid)
     - [onDragEnd](#ondragend-method-eventelementid-e-currentdragelementid)
@@ -73,7 +73,7 @@ Add the required attributes to elements.
 ```jsx
          <div
             . . .
-            data-dragid={'any-id'}            // is required
+            data-dragid={'example-id'}            // is required
             . . .
             draggable={true}                 // is required
 
@@ -123,6 +123,7 @@ Callback table
 
 
 #### cbDragDrop (method, eventElementId, e, currentDragElementId)
+**Recommended for all events**
 
 |Attribute name       |type    |value                                                                       |Description |
 |---------------------|--------|----------------------------------------------------------------------------|------------|
