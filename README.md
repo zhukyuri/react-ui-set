@@ -17,7 +17,7 @@ Material list:
 [Demo](https://zhukyuri.github.io/react-ui-set/)
 
 
-# DropDownProvider
+# DragDropProvider
 
 This is a React class that has ready methods for use Drag & Drop.
 
@@ -102,6 +102,7 @@ Callback table
 |cbDragEnter    |Need attribute ***onDragEnter*** in HTML element    |
 |cbDragLeave    |Need attribute ***onDragLeave*** in HTML element    |
 
+
 #### cbDragDrop (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value                                                                       |Description |
@@ -112,6 +113,7 @@ Callback table
 |currentDragElementId |string  |*                                                                           |            |
 
 
+
 #### cbDragStart (method, currentDragElementId, e)
 
 |Attribute name       |type    |value      |Description |
@@ -120,14 +122,16 @@ Callback table
 |currentDragElementId |string  |*          |            |
 |e                    |event   |*          |            |
 
+
 #### cbDrag (method, eventElementId, e, currentDragElementId)
 
 |Attribute name         |type    |value      |Description |
 |-----------------------|--------|-----------|------------|
-|method                 |string  |"DragStart"|            |
+|method                 |string  |"Drag"|            |
 |eventElementId         |string  |*          |            |
 |e                      |event   |*          |            |
 |currentDragElementId   |string  |*          |            |
+
 
 #### onDragEnd (method, eventElementId, e, currentDragElementId)
 
@@ -138,6 +142,7 @@ Callback table
 |e                    |event   |*          |            |
 |currentDragElementId |string  |*          |            |
 
+
 #### onDragOver (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value      |Description |
@@ -146,6 +151,7 @@ Callback table
 |eventElementId       |string  |*          |            |
 |e                    |event   |*          |            |
 |currentDragElementId |string  |*          |            |
+
 
 #### onDragEnter (method, eventElementId, e, currentDragElementId)
 
@@ -156,6 +162,7 @@ Callback table
 |e                    |event   |*          |            |
 |currentDragElementId |string  |*          |            |
 
+
 #### onDragLeave (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value      |Description |
@@ -164,6 +171,7 @@ Callback table
 |eventElementId       |string  |*          |            |
 |e                    |event   |*          |            |
 |currentDragElementId |string  |*          |            |
+
 
 #### onDrop (method, eventElementId, e, currentDragElementId)
 
@@ -176,6 +184,8 @@ Callback table
 
 
 ## Example 1
+[Demo](https://zhukyuri.github.io/react-ui-set/)
+
 
 ```
   |-App.js
