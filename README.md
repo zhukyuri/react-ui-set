@@ -4,7 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/react-ui-set.svg)](https://www.npmjs.com/package/react-ui-set)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Node](https://img.shields.io/node/v/:react-ui-set.svg)](https://standardjs.com)
+[![Node](https://img.shields.io/node/v/:react-ui-set.svg)](https://www.npmjs.com/package/react-ui-set)
 
 ## Install
 
