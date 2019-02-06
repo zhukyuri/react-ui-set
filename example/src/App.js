@@ -6,7 +6,7 @@ const bars = [
   {name: 'blue', color: 'blue'},
   {name: 'red', color: 'red'},
   {name: 'grey', color: 'grey'},
-  {name: 'Cornsilk', color: 'Cornsilk'},
+  {name: 'Salmon  ', color: 'Salmon'},
   {name: 'Cyan', color: 'Cyan'},
   {name: 'DarkViolet', color: 'DarkViolet'},
   {name: 'Gold', color: 'Gold'}
@@ -61,11 +61,13 @@ class App extends Component {
   }
 
   render() {
+    const {colorDrag, colorOver} = this.state
+
     return (
       <div>
         <h1>DragDropProvider</h1>
-        <h2>Color Drag: {this.state.colorDrag}</h2>
-        <h2>Color Over: {this.state.colorOver}</h2>
+        <h2>Color Drag: <span style={{color: colorDrag}}>{colorDrag}</span></h2>
+        <h2>Color Over: <span style={{color: colorOver}}>{colorOver}</span></h2>
         <p>Drag the square</p>
         <DragDropElements
           cbDragDrop={this.callbackDragDrop}

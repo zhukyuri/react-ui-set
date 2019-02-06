@@ -2,7 +2,9 @@
 
 > React UI material
 
-[![NPM](https://img.shields.io/npm/v/react-ui-set.svg)](https://www.npmjs.com/package/react-ui-set) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-ui-set.svg)](https://www.npmjs.com/package/react-ui-set)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Node](https://img.shields.io/node/v/:react-ui-set.svg)](https://standardjs.com)
 
 ## Install
 
@@ -132,7 +134,7 @@ Callback table
 **Recommended for all events**
 
 |Attribute name       |type    |value                                                                       |Description |
-|---------------------|--------|----------------------------------------------------------------------------|------------|
+|---------------------|--------|:--------------------------------------------------------------------------:|------------|
 |method               |string  |"DragStart", "Drag", "DragEnd", "DragEnter", "DragLeave", "DragOver", "Drop"|            |
 |eventElementId       |string  |*                                                                           |            |
 |e                    |event   |*                                                                           |            |
@@ -143,7 +145,7 @@ Callback table
 #### cbDragStart (method, currentDragElementId, e)
 
 |Attribute name       |type    |value      |Description |
-|---------------------|--------|-----------|------------|
+|---------------------|--------|:---------:|------------|
 |method               |string  |"DragStart"|            |
 |currentDragElementId |string  |*          |            |
 |e                    |event   |*          |            |
@@ -152,8 +154,8 @@ Callback table
 #### cbDrag (method, eventElementId, e, currentDragElementId)
 
 |Attribute name         |type    |value      |Description |
-|-----------------------|--------|-----------|------------|
-|method                 |string  |"Drag"|            |
+|-----------------------|--------|:---------:|------------|
+|method                 |string  |"Drag"     |            |
 |eventElementId         |string  |*          |            |
 |e                      |event   |*          |            |
 |currentDragElementId   |string  |*          |            |
@@ -162,7 +164,7 @@ Callback table
 #### onDragEnd (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value      |Description |
-|---------------------|--------|-----------|------------|
+|---------------------|--------|:---------:|------------|
 |method               |string  |"DragEnd"  |            |
 |eventElementId       |string  |*          |            |
 |e                    |event   |*          |            |
@@ -172,7 +174,7 @@ Callback table
 #### onDragOver (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value      |Description |
-|---------------------|--------|-----------|------------|
+|---------------------|--------|:---------:|------------|
 |method               |string  |"DragOver" |            |
 |eventElementId       |string  |*          |            |
 |e                    |event   |*          |            |
@@ -182,7 +184,7 @@ Callback table
 #### onDragEnter (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value      |Description |
-|---------------------|--------|-----------|------------|
+|---------------------|--------|:---------:|------------|
 |method               |string  |"DragEnter"|            |
 |eventElementId       |string  |*          |            |
 |e                    |event   |*          |            |
@@ -192,7 +194,7 @@ Callback table
 #### onDragLeave (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value      |Description |
-|---------------------|--------|-----------|------------|
+|---------------------|--------|:---------:|------------|
 |method               |string  |"DragLeave"|            |
 |eventElementId       |string  |*          |            |
 |e                    |event   |*          |            |
@@ -202,7 +204,7 @@ Callback table
 #### onDrop (method, eventElementId, e, currentDragElementId)
 
 |Attribute name       |type    |value      |Description |
-|---------------------|--------|-----------|------------|
+|---------------------|--------|:---------:|------------|
 |method               |string  |"Drop"     |            |
 |eventElementId       |string  |*          |            |
 |e                    |event   |*          |            |
@@ -238,7 +240,7 @@ class DragDropElements extends DragDropProvider {
             className='bar-el'
             style={{backgroundColor: i.color}}
             data-dragid={i.name}                  // required
-            draggable={true} // is required
+            draggable={true}                      // required
 
             onDragStart={this.onDragStart}        // required
             // onDrag={this.onDrag}
@@ -328,11 +330,13 @@ class App extends Component {
   }
 
   render() {
+    const {colorDrag, colorOver} = this.state
+
     return (
       <div>
         <h1>DragDropProvider</h1>
-        <h2>Color Drag: {this.state.colorDrag}</h2>
-        <h2>Color Over: {this.state.colorOver}</h2>
+        <h2>Color Drag: <span style={{color: colorDrag}}>{colorDrag}</span></h2>
+        <h2>Color Over: <span style={{color: colorOver}}>{colorOver}</span></h2>
         <p>Drag the square</p>
         <DragDropElements
           cbDragDrop={this.callbackDragDrop}
@@ -361,6 +365,7 @@ body {
   width: 50px;
   height: 50px;
   margin: 10px;
+  border: 5px solid white;
 }
 ```
 
