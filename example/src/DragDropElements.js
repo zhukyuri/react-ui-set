@@ -10,6 +10,7 @@ class DragDropElements extends DragDropProvider {
       <div>
         {data.map(i => (
           <div
+            key={`key-${i.name}`}
             className='bar-el'
             style={{backgroundColor: i.color}}
             data-dragid={i.name} // is required
@@ -21,7 +22,7 @@ class DragDropElements extends DragDropProvider {
             // onDrop={this.onDrop}
             onDragOver={this.onDragOver}
             // onDragEnter={this.onDragEnter}
-            // onDragLeave={this.onDragLeave}
+            onDragLeave={this.onDragLeave}
           />
         ))}
       </div>

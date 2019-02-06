@@ -10,7 +10,13 @@
 npm install --save react-ui-set
 ```
 
-Material list:
+## Material list
+
+- DropDownProvider -  [Demo](https://zhukyuri.github.io/react-ui-set/)
+- (Other in progress)
+
+#### Contents
+
 - [DropDownProvider](#dragdropprovider)
   - [Demo](https://zhukyuri.github.io/react-ui-set/)
   - [Usage](#usage)
@@ -73,11 +79,11 @@ Add the required attributes to elements.
 ```jsx
          <div
             . . .
-            data-dragid={'example-id'}            // is required
+            data-dragid={'example-id'}            // required
             . . .
-            draggable={true}                 // is required
+            draggable={true}                      // required
 
-            onDragStart={this.onDragStart}          // is required
+            onDragStart={this.onDragStart}        // required
             onDrag={this.onDrag}
             onDragEnd={this.onDragEnd}
             onDrop={this.onDrop}
@@ -228,18 +234,19 @@ class DragDropElements extends DragDropProvider {
       <div>
         {data.map(i => (
           <div
+            key={`key-${i.name}`}
             className='bar-el'
             style={{backgroundColor: i.color}}
-            data-dragid={i.name} // is required
+            data-dragid={i.name}                  // required
             draggable={true} // is required
 
-            onDragStart={this.onDragStart} // is required
+            onDragStart={this.onDragStart}        // required
             // onDrag={this.onDrag}
             // onDragEnd={this.onDragEnd}
             // onDrop={this.onDrop}
             onDragOver={this.onDragOver}
             // onDragEnter={this.onDragEnter}
-            // onDragLeave={this.onDragLeave}
+            onDragLeave={this.onDragLeave}
           />
         ))}
       </div>
@@ -291,20 +298,30 @@ class App extends Component {
    */
   callbackDragDrop(method, elementId, e, currentDragElementId) {
     switch (method) {
+
+      case 'DragStart':
+        e.currentTarget.style.border = '5px solid white'
+        break
+
       case 'DragOver':
         this.setState({
           colorDrag: currentDragElementId,
           colorOver: elementId
         })
+        e.currentTarget.style.border = `5px solid ${currentDragElementId}`
         break
-      case 'DragStart':
+
+      case 'DragLeave':
+        e.currentTarget.style.border = '5px solid white'
+        break
+
       case 'DragEnd':
       case 'DragEnter':
-      case 'DragLeave':
       case 'Drag':
       case 'Drop':
         // TODO
         break
+
       default:
         break
     }

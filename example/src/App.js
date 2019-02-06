@@ -32,20 +32,29 @@ class App extends Component {
    */
   callbackDragDrop(method, elementId, e, currentDragElementId) {
     switch (method) {
+      case 'DragStart':
+        e.currentTarget.style.border = '5px solid white'
+        break
+
       case 'DragOver':
         this.setState({
           colorDrag: currentDragElementId,
           colorOver: elementId
         })
+        e.currentTarget.style.border = `5px solid ${currentDragElementId}`
         break
-      case 'DragStart':
+
+      case 'DragLeave':
+        e.currentTarget.style.border = '5px solid white'
+        break
+
       case 'DragEnd':
       case 'DragEnter':
-      case 'DragLeave':
       case 'Drag':
       case 'Drop':
         // TODO
         break
+
       default:
         break
     }
